@@ -1,0 +1,62 @@
+body{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
+	align-content: space-between;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	padding: 1% 15% 1% 15%;
+	background-attachment: fixed;
+	background-color: rgb(28, 27, 34);
+}
+
+
+a{
+	margin-top: 5px;
+}
+
+h1, a{
+	color: white;
+	text-decoration-line: none;
+}
+body:has(option[value="Guerrier"]:checked){
+	background-image: url("Logo/Warrior_tango_icon_200px.png");
+}
+
+body:has(option[value="Revenant"]:checked){
+	background-image: url("Logo/Revenant_tango_icon_200px.png");
+}
+
+body:has(option[value="Gardien"]:checked){
+	background-image: url("Logo/Guardian_tango_icon_200px.png");
+}
+
+body:has(option[value="Ingénieur"]:checked){
+	background-image: url("Logo/Engineer_tango_icon_200px.png");
+}
+
+body:has(option[value="Voleur"]:checked){
+	background-image: url("Logo/Thief_tango_icon_200px.png");
+}
+
+body:has(option[value="Rôdeur"]:checked){
+	background-image: url("Logo/Ranger_tango_icon_200px.png");
+}
+
+body:has(option[value="Envoûteur"]:checked){
+	background-image: url("Logo/Mesmer_tango_icon_200px.png");
+}
+
+body:has(option[value="Nécromant"]:checked){
+	background-image: url("Logo/Necromancer_tango_icon_200px.png");
+}
+
+body:has(option[value="Élémentaliste"]:checked){
+	background-image: url("Logo/Elementalist_tango_icon_200px.png");
+}
+
+a:hover{
+	color: rgb(28, 27, 34);
+	background-color: white;
+}

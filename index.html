@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Compilation de mes builds</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body onload="changeFunction()">
+		<!-- Créez un menu déroulant et un lien -->
+		<label for="menu">
+			<h1>Compilation de mes builds</h1>
+		</label>
+		<select id="menu">
+		</select>
+		<a id="link1" href="#" target="_blank">Sélectionnez un archétype</a>
+		<a id="link2" href="#" target="_blank">Sélectionnez un archétype</a>
+		<a id="link3" href="#" target="_blank">Sélectionnez un archétype</a>
+		<a id="link4" href="#" target="_blank">Sélectionnez un archétype</a>
+		<a id="link5" href="#" target="_blank">Sélectionnez un archétype</a>
+		<a id="link6" href="#" target="_blank">Sélectionnez un archétype</a>
+		<a id="link7" href="#" target="_blank">Sélectionnez un archétype</a>
+		<a id="link8" href="#" target="_blank">Sélectionnez un archétype</a>
+		<a id="link9" href="#" target="_blank">Sélectionnez un archétype</a>
+		<a id="link10" href="#" target="_blank">Sélectionnez un archétype</a>
+		<a id="link11" href="#" target="_blank">Sélectionnez un archétype</a>
+		<a id="link12" href="#" target="_blank">Sélectionnez un archétype</a>
+		<script>
+			// Définissez un tableau d'objets contenant les différentes options de menu et les liens et noms associés
+			const menuOptions = [{
+				text: "Guerrier",
+				link1: "http://gw2skills.net/editor/?PKwAgeJlFwSYHsJ2JO+O/veA-zxQYho7SfHySZUbqWRVZ7JRMSHA5H+rhCLYgKA-e",
+				link1Name: "Spellbreaker Marteau",
+				link2: "http://gw2skills.net/editor/?PKwAceFlRwmYUMHmJO+WatKA-zRRYBhbfO6WElRtpaFVltnkw4vF9nBgKA-e",
+				link2Name: "Power Berserker",
+				link3: "#",
+				link3Name: "N/A",
+				link4: "#",
+				link4Name: "N/A",
+				link5: "#",
+				link5Name: "N/A",
+				link6: "#",
+				link6Name: "N/A",
+				link7: "#",
+				link7Name: "N/A",
+				link8: "#",
+				link8Name: "N/A",
+				link9: "#",
+				link9Name: "N/A",
+				link10: "#",
+				link10Name: "N/A",
+				link11: "#",
+				link11Name: "N/A",
+				link12: "#",
+				link12Name: "N/A"
+			},
+			{
+				text: "Revenant",
+				link1: "http://gw2skills.net/editor/?PmwAExzldQMMHyj1QdsHij9RksAigJ7lasD-zRRYBR95/coAlRtpaFVltnkw4vF9PjgKA-e",
+				link1Name: "Power Vindicator",
+				link2: "http://gw2skills.net/editor/?PmwAwyZlpQHMLyhdRNMM6hJSfsCKgJ7lazE-zRZYBBJsFStM4o7qisMqNVroqs9kEG/to/MAUB-e",
+				link2Name: "Quick Power Héraut",
+				link3: "http://gw2skills.net/editor/?PmgAUVltQIsNKipRSsMCiNSgMDSgjuk/TF-zRJYmR1fpEXEFZiUZImbRI8JJI+bh3zKoC-e",
+				link3Name: "Renégat Condi",
+				link4: "http://gw2skills.net/editor/?PmgAUVltQIsNKipRSsMCiNSgMDSgjuk5TH-zRZYfBBaGBVeEyRlZ0WhEZiUZIGSVJ8JJI+rBEfa/KA-e",
+				link4Name: "Renégat Alacrité Fractal",
+				link5: "#",
+				link5Name: "N/A",
+				link6: "#",
+				link6Name: "N/A",
+				link7: "http://en.gw2skills.net/editor/?PmwAwyZlpQHMLyhdRNMM6hJSfsCKgJ7lazE-zRZYBBJsFStM4o7qisMqNVroqs9kEG/to/MAUB-e",
+				link7Name: "Quick héraut (27 juillet)",
+				link8: "#",
+				link8Name: "N/A",
+				link9: "http://gw2skills.net/editor/?PmQAYlpQJMLiidRTMMqiJShsCagl3TVrC-zRRYdRBpmtaoqSKjqLg0TAfPICQCgLbg7f00elSAA-e",
+				link9Name: "Power heal herald no robu",
+				link10: "http://gw2skills.net/editor/?PmwAYl7lpQJMLiidRTMMqiJShsCagj1TVrC-zRZYPBhPG1XdHqhUUGVXVpnq+eSCl/WafzCqA-e",
+				link10Name: "Hérald heal",
+				link11: "http://gw2skills.net/editor/?PmwAkeVlhQLsIajJRaMIKjBSjMBygjuk57H-zRZYcBZSGSnc0dFldGpLVDRVp0LSQ8XDIu0+VA-e",
+				link11Name: "Rénégât alacrité fractal céleste",
+				link12: "http://gw2skills.net/editor/?PmwAwyZlpQHMLyhdRNMM6hJSfsCKgJ7lazE-zRRYBR392HcIoALjaT1KqKbPJixvfgkAeL6vgBVA-e",
+				link12Name: "Quick Power Héraut Temple des Moissons"
+			},
+			{
+				text: "Gardien",
+				link1: "http://gw2skills.net/editor/?PWgAENlVwmYOMEWJO0LutcA-zxQYho6yfHyQZERqWRVZ7JRM+9DkEwbR/ZAoC-e",
+				link1Name: "Dragon Hunter Power",
+				link2: "http://gw2skills.net/editor/?PWwAYl7lRweYYML2JmKXrPdA-zRRYjRIBFPSURvNUIpmAVXBpHC+eSCl9wbp9NLoC-e",
+				link2Name: "Heal Firebrand Tank avec Signe de Miséricorde",
+				link3: "http://gw2skills.net/editor/?PWwAYl7lRweYXMM2JmKXrPbA-zRRYjRIgEV/FSqJa1VV6hgvnEBoCUe+bp9NLoC-e",
+				link3Name: "Heal Firebrand Tank",
+				link4: "http://gw2skills.net/editor/?PWABc+t/lRweYdsKmJW0WfPTA-zRJYyx/ZkgUNdVlYPJiwPARk+bN74rCUB-e",
+				link4Name: "Quick Brand",
+				link5: "http://gw2skills.net/editor/?PWABc+t/lRwgYdsKmJW0WXvXA-zRRYcR19NZkSgCjkUtrqcOJBxfNg4TDUB-e",
+				link5Name: "L'Indécendiaire",
+				link6: "http://gw2skills.net/editor/?PWwAYl7lRweYYML2JmKXrPbA-zRZYRhESbMCp+KRiKoQSNBquCSPE89kIK7h83WBs0+m9XB-e",
+				link6Name: "Heal Firebrand Tank avec Signe de Miséricorde Fractal",
+				link7: "http://gw2skills.net/editor/?PWwAYl7lRweYYML2JmKXrPdA-zRhYjhgiXNqoWvRIgESohCJ1Eo6KI9Qw3TSosHeLtvZBVA-e",
+				link7Name: "Heal Firebrand Roster 1 - 1753 Robu",
+				link8: "http://gw2skills.net/editor/?PWwAYl7lRweYYML2JmKXrPdA-zRRYjhi6EJqJ3wKjqrg0TBfPJhye4t0+mFUB-e",
+				link8Name: "Heal Firebrand Roster 2 - 2284 Robu",
+				link9: "#",
+				link9Name: "N/A",
+				link10: "#",
+				link10Name: "N/A",
+				link11: "#",
+				link11Name: "N/A",
+				link12: "#",
+				link12Name: "N/A"
+			},
+			{
+				text: "Ingénieur",
+				link1: "http://gw2skills.net/editor/?PeABk6p7lxygZusWWMOeL5xaA-zxIY1ovPM6qiwUR7kEE7nHQFA-e",
+				link1Name: "Ingénieur Céleste Open World",
+				link2: "http://gw2skills.net/editor/?PewAk6RlNwcZtMPWMeyT/RVA-zRRYjRXVMSIdlRipS1VhvnkQZ/8WafzCqA-e",
+				link2Name: "Mécaniste Heal Alac",
+				link3: "http://gw2skills.net/editor/?PegAkqlxy4YuMYWMOeL5xaA-DSRYfhEiwMaq+2Pk4kAdoICRgowjBJREqAiNT+rBEnVgKA-e",
+				link3Name: "Condi Mécaniste",
+				link4: "http://gw2skills.net/editor/?PeQAQlJwaZusXWMOuLvxPA-DSRYBRRpX2coiMLjaTkKKCbPLkkwYz8W0/MCqA-e",
+				link4Name: "Power Mécaniste",
+				link5: "http://gw2skills.net/editor/?PeQAIlJw0YNMIWJO2LvteA-zRRYBRRpX2coiMLjaTkKKCbPJhxm5to/ZEUB-e",
+				link5Name: "Power Scrapper",
+				link6: "http://gw2skills.net/editor/?PegAIRlNw2YNMIWJO2LvtXA-zRZYBhUyAOqq6SnDCqMqoKSPVU7kEG7n3i+nRQFA-e",
+				link6Name: "Quickness Scrapper",
+				link7: "http://gw2skills.net/editor/?PeQAQlNwaZusXWMOuLvRVA-zRRYBhWrBOKKqkLjaTkKKCbPJiR5jsZKYL6fGBVA-e",
+				link7Name: "Alac Power Mécaniste",
+				link8: "http://gw2skills.net/editor/?PeQAQlNwaZusXWJOuLvRVA-zRZYBRRp2BcoqQmDCuMqNRqoIs9jIGbmD/JpDwi+L7fFA-e",
+				link8Name: "Mécha Power Alac Fractal",
+				link9: "#",
+				link9Name: "N/A",
+				link10: "#",
+				link10Name: "N/A",
+				link11: "http://gw2skills.net/editor/?PeABwqprlJw6YcsEGKOOL5vbA-DSRYfhATwM6rv6Pj4kKdoKU4xgkICVAx+J/1AizKQFA-e",
+				link11Name: "Condi Holographiste - 26/09/2023",
+				link12: "#",
+				link12Name: "N/A"
+			},
+			{
+				text: "Voleur",
+				link1: "http://gw2skills.net/editor/?PaABsitrlZwUYHME2JO2WfxKA-zRRYch0TjMuiKLkWChIT0OqKvPJBxfN44TDUB-e",
+				link1Name: "Spectre dps (une honte)",
+				link2: "http://gw2skills.net/editor/?PaABsitrlhySZssD2JO2WfxPA-zRZYchWT5NERQyxBVZh0SIEZi2RV59JRESAs43/oBHfa/KA-e",
+				link2Name: "Condi Alac Fractal Spectre",
+				link3: "http://gw2skills.net/editor/?PawAQhrlZw2YYsM2JO8LbvKA-zRRYBR5tbOiIiLlWChIigaT0KKKbPJix2/JjAso/MAUB-e",
+				link3Name: "Dead Eye kite",
+				link4: "http://gw2skills.net/editor/?PagAgilZwUYHMK2JO2W1tMA-zRRYfhAZGN33lRkJaHFlBnERIdAiN/h/amxvFoC-e",
+				link4Name: "Condi Fracasseur",
+				link5: "http://gw2skills.net/editor/?PaABsitrlZwUYHME2JO2WfxaA-zRZYcBJ8Gqgcc61XGdUVhkqefSEgKg45vGc8p9rA-e",
+				link5Name: "Spectre alac fractal",
+				link6: "http://gw2skills.net/editor/?PaABsitrlZwUYHME2JO2WfxaA-DSJYyxfh0SIkei2RV59zgkIAJcQ8741gjLNQFA-e",
+				link6Name: "Spectre alacrité",
+				link7: "#",
+				link7Name: "N/A",
+				link8: "#",
+				link8Name: "N/A",
+				link9: "#",
+				link9Name: "N/A",
+				link10: "#",
+				link10Name: "N/A",
+				link11: "#",
+				link11Name: "N/A",
+				link12: "#",
+				link12Name: "N/A"
+			},
+			{
+				text: "Rôdeur",
+				link1: "http://gw2skills.net/editor/?POwEYiNssCGCLhxwIxxXyvpVi9vD-zRRYPR9WNsyo6qK9U13TSo83S7bWQFA-e",
+				link1Name: "Druide Classic 66.66%",
+				link2: "http://gw2skills.net/editor/?POgAYZlVwUYJMEWJWuSeNvSs/DA-DSRYjhgyHJqu3CKjqrq0TVf/EkkA4vl23sgKA-e",
+				link2Name: "Druide tank 100%",
+				link3: "http://gw2skills.net/editor/?POQAYlVwQYJsDGJWuSaNtSs/DA-zRRYQBZoGFc5lR1FQ6JgvnEBo8V2AFsl23sgKA-e",
+				link3Name: "Druide no robu",
+				link4: "http://gw2skills.net/editor/?POwAMxflZw2YgsLmJWyX+P9JsD-zRRYBhcTfOqvoKKjaT1KqKbPJhxfL6fGBVA-e",
+				link4Name: "Power Soulbeast Arc Long",
+				link5: "#",
+				link5Name: "N/A",
+				link6: "#",
+				link6Name: "N/A",
+				link7: "#",
+				link7Name: "N/A",
+				link8: "#",
+				link8Name: "N/A",
+				link9: "#",
+				link9Name: "N/A",
+				link10: "#",
+				link10Name: "N/A",
+				link11: "#",
+				link11Name: "N/A",
+				link12: "http://gw2skills.net/editor/?POwEY6MssCmCDhxwIxxXyvpVi9vD-zRZYPhEeMqvaIhQUGVXVpnq+eSCl/WafzCqA-e",
+				link12Name: "Druide classic sans circaete"
+			},
+			{
+				text: "Envoûteur",
+				link1: "http://gw2skills.net/editor/?PiwAEhzlVwWZbsJmLOyKdRdA-zRIYRU/XG1mqVUVmcSEjf/AJB8W0fBDqA-e",
+				link1Name: "Power virtuose",
+				link2: "http://gw2skills.net/editor/?PiwAYt3lRwiYIsEmJWKPdvNA-zRRYVR9CUOcflR6paIVl8nERoJu1YiLNQFA-e",
+				link2Name: "Mirage Alac 100% Boon et Durée d'Altérations",
+				link3: "http://gw2skills.net/editor/?PiABg+hrlVwWZIsEmLe8WtxfA-DSZYfR19WgZIoIKiUk+gEPFiEodqKffASiQkOAyP8XDIOrAVA-e",
+				link3Name: "Condi Virtuose",
+				link4: "#",
+				link4Name: "Chrono Power Alac 50% de Concentration - à mettre à jour",
+				link5: "http://gw2skills.net/editor/?PiABs6t/lVwWYOsE2IecX/tPA-zRRYVBLHvyI9UNkqS+TiIU+Evg1YivKQFA-e",
+				link5Name: "Condi Chrono Tank",
+				link6: "#",
+				link6Name: "N/A",
+				link7: "#",
+				link7Name: "N/A",
+				link8: "#",
+				link8Name: "N/A",
+				link9: "#",
+				link9Name: "N/A",
+				link10: "#",
+				link10Name: "N/A",
+				link11: "http://gw2skills.net/editor/?PiwAYt3lRwiYIsEmJWSPdPNA-zRZYfBJaGqncUfC1VGdUVhkqCfSC2/aAx02vC-e",
+				link11Name: "Condi mirage alac fractal 590 agonie",
+				link12: "http://gw2skills.net/editor/?PiABs+trlVwiYIsE2Ie8X/vLA-zRRYfBRaGfblRHVVIpqwnkg4vGQcWBqA-e",
+				link12Name: "Sceptre Mirage - En l'attente d'un up"
+			},
+			{
+				text: "Nécromant",
+				link1: "http://gw2skills.net/editor/?PSAFsE26XZGMNmEDiZip6V2rH-zRRYjhCyHJO/CKjqrq0TVfPJCQFo883S7bWQFA-e",
+				link1Name: "Heal Scourge",
+				link2: "http://gw2skills.net/editor/?PSgAEZlJwuYOsFWJOSXmNbA-zRIYRU9XG1mqVUVmcSEjf/AJB8W0/MCqA-e",
+				link2Name: "Power Reaper",
+				link3: "http://gw2skills.net/editor/?PSAFs81aYZDMNGI7jRil6V9TF-zRJYmxfZ0RVFSqK8JJI+rBEnVgKA-e",
+				link3Name: "Condi Scourge",
+				link4: "http://gw2skills.net/editor/?PSgAEZlRwuYKsEWJWeT9NTA-zxIY1o6/UqQRFzIomhSISQ5dSCi/AqA-e",
+				link4Name: "Hybride Reaper Céleste",
+				link5: "http://gw2skills.net/editor/?PSAFoElaYZoMVGI7j1il6Vd8H-zRJYmxfZkSq2VVJ8JREqAin/aAxZFoC-e",
+				link5Name: "Condi Harbinger",
+				link6: "#",
+				link6Name: "N/A",
+				link7: "#",
+				link7Name: "N/A",
+				link8: "#",
+				link8Name: "N/A",
+				link9: "#",
+				link9Name: "N/A",
+				link10: "#",
+				link10Name: "N/A",
+				link11: "#",
+				link11Name: "N/A",
+				link12: "#",
+				link12Name: "N/A"
+			},
+			{
+				text: "Élémentaliste",
+				link1: "http://gw2skills.net/editor/?PGwEsEmpMD2FjixwKxy26ulC-zRZYbhUyAO6qoSmDRGcZERVkeqo2JJQ2PvF9H3gKA-e",
+				link1Name: "Power Cataclyste Alac",
+				link2: "http://gw2skills.net/editor/?PGwAwiZlZwuwoYn4or89yA-zRZYBBRMEKwc0V+tXG1mKVUF2eSCj9zbR/zIoC-e",
+				link2Name: "Power Weaver",
+				link3: "http://gw2skills.net/editor/?PGQAIlZwuYrMKGJW+W1xfA-zRZYBhUCDOKoiInDB3QZUbCURBYyJZASAyYDo/m0so/CGUB-e",
+				link3Name: "Power Catalyseur Quick",
+				link4: "#",
+				link4Name: "N/A",
+				link5: "#",
+				link5Name: "N/A",
+				link6: "#",
+				link6Name: "N/A",
+				link7: "#",
+				link7Name: "N/A",
+				link8: "#",
+				link8Name: "N/A",
+				link9: "#",
+				link9Name: "N/A",
+				link10: "#",
+				link10Name: "N/A",
+				link11: "#",
+				link11Name: "N/A",
+				link12: "#",
+				link12Name: "N/A"
+			}];
+
+			// Sélectionnez le menu et les liens dans le document HTML
+			const menu = document.querySelector("#menu");
+			const link1 = document.querySelector("#link1");
+			const link2 = document.querySelector("#link2");
+			const link3 = document.querySelector("#link3");
+			const link4 = document.querySelector("#link4");
+			const link5 = document.querySelector("#link5");
+			const link6 = document.querySelector("#link6");
+			const link7 = document.querySelector("#link7");
+			const link8 = document.querySelector("#link8");
+			const link9 = document.querySelector("#link9");
+			const link10 = document.querySelector("#link10");
+			const link11 = document.querySelector("#link11");
+			const link12 = document.querySelector("#link12");
+
+			// Boucle sur les options de menu et ajoutez-les au menu
+			menuOptions.forEach(option =>{
+				const menuItem = document.createElement("option");
+				menuItem.text = option.text;
+				menuItem.value = option.text;
+				menu.add(menuItem);
+			});
+
+			// Ajoutez un gestionnaire d'événements "change" au menu pour mettre à jour les liens et leurs noms en fonction de la sélection de l'utilisateur
+			function changeFunction() {
+				const selectedOption = menuOptions[event.target.selectedIndex || 0];
+				link1.href = selectedOption.link1;
+				link1.text = selectedOption.link1Name;
+				link2.href = selectedOption.link2;
+				link2.text = selectedOption.link2Name;
+				link3.href = selectedOption.link3;
+				link3.text = selectedOption.link3Name;
+				link4.href = selectedOption.link4;
+				link4.text = selectedOption.link4Name;
+				link5.href = selectedOption.link5;
+				link5.text = selectedOption.link5Name;
+				link6.href = selectedOption.link6;
+				link6.text = selectedOption.link6Name;
+				link7.href = selectedOption.link7;
+				link7.text = selectedOption.link7Name;
+				link8.href = selectedOption.link8;
+				link8.text = selectedOption.link8Name;
+				link9.href = selectedOption.link9;
+				link9.text = selectedOption.link9Name;
+				link10.href = selectedOption.link10;
+				link10.text = selectedOption.link10Name;
+				link11.href = selectedOption.link11;
+				link11.text = selectedOption.link11Name;
+				link12.href = selectedOption.link12;
+				link12.text = selectedOption.link12Name;
+			}
+			menu.addEventListener("change", changeFunction);
+		</script>
+	</body>
+</html>
